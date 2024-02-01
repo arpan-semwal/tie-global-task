@@ -1,0 +1,22 @@
+
+.search{
+    display: flex;
+}
+.search input{
+    padding: 10px 15px 10px 15px;
+}
+
+
+.bt2{
+    margin-left: 10px;
+    padding: 10px 15px;
+    font-size: 13px;
+    background-color: rgb(223, 3, 3);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.bt2:hover{
+    background-color: rgb(202, 7, 7) ;
+}

@@ -1,0 +1,82 @@
+p{
+    font-size: 25px;
+    color: grey;
+}
+
+
+.market{
+    display: flex;
+    flex-direction: column;
+}
+
+.status{
+    margin-top: 10px;
+}
+
+.status button{
+    margin-right: 40px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 50px;
+    border: 1px solid black;
+    color: green;
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.status button::before {
+    content: '';
+    position: absolute;
+    left: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 13px;
+    height: 13px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 2px white; /* Adding a box shadow to create a circle */
+}
+
+.gain{
+    padding-top: 15px;
+}
+
+.market-button{
+    padding-top:15px;
+   
+}
+
+.btn3{
+    
+    padding: 10px 15px;
+    font-size: 13px;
+    background-color: rgb(28, 200, 54);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+.btn3:hover{
+    background-color: rgb(26, 164, 46);
+}
+
+.btn4{
+    padding: 10px 15px;
+    font-size: 13px;
+    background-color: rgb(223, 3, 3);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn4:hover{
+    background-color: rgb(197, 11, 11);
+}
+
+
+ 
