@@ -1,6 +1,6 @@
  import { useEffect, useState } from "react";
  import axios from "axios";
-import "./DataShow.css";
+ import "./DataShow.css";
 
 const DataShow = () => {
   
@@ -9,25 +9,24 @@ const DataShow = () => {
    
 
 
+  
+  
   useEffect(() => {
-    const fetchDataApi = async() => {
-      try{
-        const GAINERS_URL = " https://www.nseindia.com/api/live-analysis-variations?index=gainers";
-        const response = await axios.get(GAINERS_URL);
-
-       
-        setNiftyData(response.data.NIFTY.data);
-
-      }catch(error){
-        console.log(error.message);
-      }
-      finally{
-        setLoading(false)
+    const fetchDataApi = async () => {
+      try {
+        const BACKEND_URL = "http://localhost:3001/niftyData";
+        const response = await axios.get(BACKEND_URL);
+        console.log("Response from backend:", response);
+        setNiftyData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      } finally {
+        setLoading(false);
       }
     };
-
+  
     fetchDataApi();
-  } , []);
+  }, []);
  
   return (
     <div className="datashow">
