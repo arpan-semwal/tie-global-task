@@ -1,42 +1,33 @@
- import { useEffect, useState } from "react";
- import axios from "axios";
- import "./DataShow.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import "./DataShow.css";
 
 const DataShow = () => {
-  
-  const [niftyData , setNiftyData] = useState([]);
-  const [loading , setLoading] = useState(true);
-   
+  const [niftyData, setNiftyData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-
-  
-  
   useEffect(() => {
     const fetchDataApi = async () => {
       try {
-        const BACKEND_URL = "http://localhost:3001/niftyData";
-        const response = await axios.get(BACKEND_URL);
-        console.log("Response from backend:", response);
-        setNiftyData(response.data);
+        const PROXY_URL = "http://localhost:3002/nseData";
+        const response = await axios.get(PROXY_URL);
+        console.log("Response from proxy server:", response);
+        setNiftyData(response.data.NIFTY.data);
       } catch (error) {
         console.error("Error fetching data:", error.message);
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchDataApi();
   }, []);
- 
+
   return (
     <div className="datashow">
       {loading && <p>Loading...</p>}
-     
-
-      
 
       <div>
-        
         <table>
           <thead>
             <tr>
@@ -56,8 +47,10 @@ const DataShow = () => {
               <th>Percentage Change</th>
             </tr>
           </thead>
+
+
           <tbody>
-            {niftyData.map((stock, index) => (
+            {niftyData?.map((stock, index) => (
               <tr key={index}>
                 <td>{stock.symbol}</td>
                 <td>{stock.series}</td>
@@ -79,7 +72,7 @@ const DataShow = () => {
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DataShow
+export default DataShow;
